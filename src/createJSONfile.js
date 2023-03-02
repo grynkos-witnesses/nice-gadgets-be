@@ -1,4 +1,3 @@
-const jsonConcat = require('json-concat');
 const fs = require('fs');
 const path = require('path');
 
