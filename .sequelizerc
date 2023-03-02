@@ -4,7 +4,6 @@ module.exports = {
   'config': path.resolve('config', 'config.json'),
   'models-path': path.resolve('db', 'models'),
   'seeders-path': path.resolve('db', 'seeders'),
-  'migrations-path': path.resolve('db', 'migrations'),
-  'options-path': path.resolve('mockup_data', 'phones.json')
+  'migrations-path': path.resolve('db', 'migrations')
 };
 
