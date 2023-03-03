@@ -7,7 +7,7 @@ const client = new Client({
   database: 'phones',
   password: 'Vv0820132525'
 })
-client.connect()
+client.connect();
 
 const PORT = 3000;
 
@@ -33,6 +33,6 @@ app.get('/phones/:id', async (req, res) => {
   res.send(foundData);
 })
 
-app.listen(PORT, () => {
+app.listen(process.env.PORT || PORT, () => {
    console.log(`API is ready on http://localhost:${PORT} 🚀🚀🚀`);
 });
