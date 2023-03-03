@@ -11,6 +11,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 const express = require('express');
 const cors = require('cors');
 const { Client } = require('pg');
+const url = require('url');
 const client = new Client({
     user: "victoria-kovalenko",
     password: "bz0odCuy6msa",
@@ -23,8 +24,19 @@ const PORT = 3000;
 const app = express();
 app.use(cors());
 app.get('/phones', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const normalizedUrl = new url.URL(req.url, `http://${req.headers.host}`);
+    const params = normalizedUrl.searchParams;
+    const page = params.get('page');
+    const perPage = params.get('perPage');
     const data = yield client.query(`SELECT * FROM public."Phones"`);
-    console.log(req);
+    if (page && perPage) {
+        const skipCount = +perPage * (+page - 1);
+        const result = data.rows.slice(skipCount, skipCount + +perPage);
+        res.send({
+            data: result,
+            total: data.rows.length
+        });
+    }
     res.send(data.rows);
 }));
 // app.get('/phones/:id', async (req, res) => {

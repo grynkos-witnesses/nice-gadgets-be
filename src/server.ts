@@ -1,6 +1,8 @@
 const express = require('express');
 const cors = require('cors');
 const { Client } = require('pg')
+const url = require('url');
+
 const client = new Client({
         user: "victoria-kovalenko",
         password: "bz0odCuy6msa",
@@ -17,8 +19,22 @@ const app = express();
 app.use(cors());
 
 app.get('/phones', async (req: any, res: { send: (arg0: any) => void; }) => {
+  const normalizedUrl = new url.URL(req.url, `http://${req.headers.host}`);
+  const params = normalizedUrl.searchParams;
+  const page = params.get('page');
+  const perPage = params.get('perPage');
+
   const data = await client.query(`SELECT * FROM public."Phones"`);
-  console.log(req);
+  
+  if (page && perPage) {
+    const skipCount = +perPage * (+page - 1);
+    const result = data.rows.slice(skipCount, skipCount + +perPage);
+
+    res.send({
+      data: result,
+      total: data.rows.length
+    })
+  }
 
   res.send(data.rows);
 })
