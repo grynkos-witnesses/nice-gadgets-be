@@ -2,12 +2,11 @@ const express = require('express');
 const cors = require('cors');
 const { Client } = require('pg')
 const client = new Client({
-  host: 'host',
-  port: 5432,
-  user: 'postgres',
-  database: 'phones',
-  password: 'Vv0820132525'
-})
+  connectionString: process.env.DATABASE_URL,
+  ssl: {
+    rejectUnauthorized: false
+  }
+});
 client.connect();
 
 const PORT = 5000;
