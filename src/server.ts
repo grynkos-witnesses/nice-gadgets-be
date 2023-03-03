@@ -2,7 +2,8 @@ const express = require('express');
 const cors = require('cors');
 const { Client } = require('pg')
 const client = new Client({
-  host: 'localhost',
+  host: 'host',
+  port: 5432,
   user: 'postgres',
   database: 'phones',
   password: 'Vv0820132525'
