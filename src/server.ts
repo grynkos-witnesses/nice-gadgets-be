@@ -9,7 +9,7 @@ const client = new Client({
 })
 client.connect();
 
-const PORT = 3000;
+const PORT = 5000;
 
 const app = express();
 
