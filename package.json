@@ -5,11 +5,13 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon",
+    "start:local": "nodemon",
     "format": "prettier --write . --ignore-path .gitignore",
     "lint": "eslint . --ignore-path .gitignore --fix",
     "fix-style": "mpm run format && npm run lint",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "build": "tsc",
+    "start": "node ./build/server.js"
   },
   "repository": {
     "type": "git",

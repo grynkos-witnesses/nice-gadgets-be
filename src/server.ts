@@ -15,7 +15,7 @@ const app = express();
 
 app.use(cors());
 
-app.get('/phones', async (req, res) => {
+app.get('/phones', async ( res:any) => {
   const data = await client.query(`SELECT * FROM public."Phones"`);
 
   console.log(data.rows)
@@ -23,15 +23,15 @@ app.get('/phones', async (req, res) => {
   res.send(data.rows);
 })
 
-app.get('/phones/:id', async (req, res) => {
-  const data = await read();
-  const {id} = req.params;
-  const foundData = data.find(d => d.id === id);
+// app.get('/phones/:id', async (req, res) => {
+//   const data = await read();
+//   const {id} = req.params;
+//   const foundData = data.find(d => d.id === id);
 
 
 
-  res.send(foundData);
-})
+//   res.send(foundData);
+// })
 
 app.listen(process.env.PORT || PORT, () => {
    console.log(`API is ready on http://localhost:${PORT} 🚀🚀🚀`);
