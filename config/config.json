@@ -1,23 +1,28 @@
 {
   "development": {
-    "username": "postgres",
-    "password": "Vv0820132525",
-    "database": "phones",
-    "host": "127.0.0.1",
-    "dialect": "postgres"
-  },
+    "username": "victoria-kovalenko",
+    "password": "bz0odCuy6msa",
+    "database": "neondb",
+    "host": "ep-snowy-pond-231923.eu-central-1.aws.neon.tech",
+    "dialect": "postgres",
+    "dialectOptions": {
+      "ssl": "true"
+  }
+},
   "test": {
-    "username": "postgres",
-    "password": "Vv0820132525",
-    "database": "phones",
-    "host": "127.0.0.1",
-    "dialect": "postgres"
+    "username": "victoria-kovalenko",
+    "password": "bz0odCuy6msa",
+    "database": "neondb",
+    "host": "ep-snowy-pond-231923.eu-central-1.aws.neon.tech",
+    "dialect": "postgres",
+    "sslmode": "require"
   },
   "production": {
-    "username": "postgres",
-    "password": "Vv0820132525",
-    "database": "phones",
-    "host": "127.0.0.1",
-    "dialect": "postgres"
+    "username": "victoria-kovalenko",
+    "password": "bz0odCuy6msa",
+    "database": "neondb",
+    "host": "ep-snowy-pond-231923.eu-central-1.aws.neon.tech",
+    "dialect": "postgres",
+    "sslmode": "require"
   }
 }
