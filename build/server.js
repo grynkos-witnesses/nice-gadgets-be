@@ -12,10 +12,11 @@ const express = require('express');
 const cors = require('cors');
 const { Client } = require('pg');
 const client = new Client({
-    host: 'localhost',
-    user: 'postgres',
-    database: 'phones',
-    password: 'Vv0820132525'
+    user: "victoria-kovalenko",
+        password: "bz0odCuy6msa",
+        database: "neondb",
+        host: "ep-snowy-pond-231923.eu-central-1.aws.neon.tech",
+        ssl: true
 });
 client.connect();
 const PORT = 3000;
