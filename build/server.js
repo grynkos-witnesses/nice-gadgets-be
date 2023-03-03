@@ -13,18 +13,18 @@ const cors = require('cors');
 const { Client } = require('pg');
 const client = new Client({
     user: "victoria-kovalenko",
-        password: "bz0odCuy6msa",
-        database: "neondb",
-        host: "ep-snowy-pond-231923.eu-central-1.aws.neon.tech",
-        ssl: true
+    password: "bz0odCuy6msa",
+    database: "neondb",
+    host: "ep-snowy-pond-231923.eu-central-1.aws.neon.tech",
+    ssl: true
 });
 client.connect();
 const PORT = 3000;
 const app = express();
 app.use(cors());
-app.get('/phones', (res) => __awaiter(void 0, void 0, void 0, function* () {
+app.get('/phones', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const data = yield client.query(`SELECT * FROM public."Phones"`);
-    console.log(data.rows);
+    console.log(req);
     res.send(data.rows);
 }));
 // app.get('/phones/:id', async (req, res) => {
@@ -34,5 +34,5 @@ app.get('/phones', (res) => __awaiter(void 0, void 0, void 0, function* () {
 //   res.send(foundData);
 // })
 app.listen(process.env.PORT || PORT, () => {
-    console.log(`API is ready on http://localhost:${PORT} 🚀🚀🚀`);
+    console.log(`API is ready on http://localhost:${PORT}`);
 });

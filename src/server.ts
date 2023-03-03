@@ -16,10 +16,9 @@ const app = express();
 
 app.use(cors());
 
-app.get('/phones', async ( res:any) => {
+app.get('/phones', async (req: any, res: { send: (arg0: any) => void; }) => {
   const data = await client.query(`SELECT * FROM public."Phones"`);
-
-  console.log(data.rows)
+  console.log(req);
 
   res.send(data.rows);
 })
