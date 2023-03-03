@@ -34,5 +34,5 @@ app.get('/phones', async ( res:any) => {
 // })
 
 app.listen(process.env.PORT || PORT, () => {
-   console.log(`API is ready on http://localhost:${PORT} 🚀🚀🚀`);
+   console.log(`API is ready on http://localhost:${PORT}`);
 });
