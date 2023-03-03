@@ -17,12 +17,3 @@ directory.forEach((file) => {
 
   files.push(JSON.parse(data.toString()));
 })
-
-// fs.writeFileSync('../result.json', files);
-
-// jsonConcat({
-//     src: theDirectory,
-//     dest: "./result.json"
-// }, function (json) {
-//     console.log(json);
-// });
