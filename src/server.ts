@@ -2,11 +2,12 @@ const express = require('express');
 const cors = require('cors');
 const { Client } = require('pg')
 const client = new Client({
-  connectionString: process.env.DATABASE_URL,
-  ssl: {
-    rejectUnauthorized: false
-  }
-});
+        user: "victoria-kovalenko",
+        password: "bz0odCuy6msa",
+        database: "neondb",
+        host: "ep-snowy-pond-231923.eu-central-1.aws.neon.tech",
+        ssl: true
+    });
 client.connect();
 
 const PORT = 5000;
