@@ -36,9 +36,11 @@ app.get('/phones', (req, res) => __awaiter(void 0, void 0, void 0, function* () 
             data: result,
             total: data.rows.length
         });
+        return;
     }
     res.send(data.rows);
 }));
+// 
 // app.get('/phones/:id', async (req, res) => {
 //   const data = await read();
 //   const {id} = req.params;
