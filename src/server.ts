@@ -50,7 +50,7 @@ app.get('/products/new', async (req: any, res: { send: (arg0: any) => void; }) =
   const preaperedData = await client.query(
     `SELECT * 
       FROM public."Phones"
-      WHERE public."Phones"."year" = ${max}
+      WHERE public."Phones"."year" = ${max.toString()}
       `
   )
 

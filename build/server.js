@@ -45,7 +45,7 @@ app.get('/products/new', (req, res) => __awaiter(void 0, void 0, void 0, functio
     }
     const preaperedData = yield client.query(`SELECT * 
       FROM public."Phones"
-      WHERE public."Phones"."year" = ${max}
+      WHERE public."Phones"."year" = ${max.toString()}
       `);
     res.send(preaperedData.rows);
 }));
