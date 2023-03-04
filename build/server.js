@@ -27,27 +27,35 @@ app.get('/products', (req, res) => __awaiter(void 0, void 0, void 0, function* (
     const data = yield client.query(`SELECT * FROM public."Phones"`);
     res.send(data.rows);
 }));
-app.get('/products/discount', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const data = yield client.query(`SELECT * 
+app.get('/products/:filter', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const { filter } = req.params;
+    switch (filter) {
+        case 'discount': {
+            const data = yield client.query(`SELECT * 
       FROM public."Phones"
-      WHERE public."Phones"."fullPrice" - public."Phones"."price" >= 95"`);
-    res.send(data.rows);
-}));
-app.get('/products/new', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    console.log('hhhh');
-    const data = yield client.query(`SELECT public."Phones"."year" 
-      FROM public."Phones"`);
-    let max = 0;
-    for (const year of data.row) {
-        if (+year > max) {
-            max = +year;
+      WHERE public."Phones"."fullPrice" - public."Phones"."price" >= 95`);
+            res.send(data.rows);
+            break;
+        }
+        case 'new': {
+            const data = yield client.query(`
+        SELECT public."Phones"."year" 
+        FROM public."Phones"
+        `);
+            let max = 0;
+            for (const row of data.rows) {
+                if (row.year > max) {
+                    max = row.year;
+                }
+            }
+            const preaperedData = yield client.query(`SELECT * 
+          FROM public."Phones"
+          WHERE public."Phones"."year" = '${max}'
+          `);
+            res.send(preaperedData.rows);
+            break;
         }
     }
-    const preaperedData = yield client.query(`SELECT * 
-      FROM public."Phones"
-      WHERE public."Phones"."year" = ${max.toString()}
-      `);
-    res.send(preaperedData.rows);
 }));
 app.get('/products/:productType', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { productType } = req.params;

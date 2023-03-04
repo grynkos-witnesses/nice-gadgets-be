@@ -24,38 +24,50 @@ app.get('/products', async (req: any, res: { send: (arg0: any) => void; }) => {
   res.send(data.rows);
 })
 
-app.get('/products/discount', async (req: any, res: { send: (arg0: any) => void; }) => {
-  const data = await client.query(`SELECT * 
+app.get('/products/:filter', async (req: any, res: { send: (arg0: any) => void; }) => {
+  const { filter } = req.params;
+  switch (filter) {
+    case 'discount': {
+      const data = await client.query(`SELECT * 
       FROM public."Phones"
-      WHERE public."Phones"."fullPrice" - public."Phones"."price" >= 95"`
-  );
+      WHERE public."Phones"."fullPrice" - public."Phones"."price" >= 95`
+      );
 
-  res.send(data.rows);
-})
+      res.send(data.rows);
 
-app.get('/products/new', async (req: any, res: { send: (arg0: any) => void; }) => {
-  console.log('hhhh');
-  const data = await client.query(`SELECT public."Phones"."year" 
-      FROM public."Phones"`
-  );
+      break;
+    }
+    case 'new': {
+      const data = await client.query(`
+        SELECT public."Phones"."year" 
+        FROM public."Phones"
+        `
+      );
 
-  let max = 0; 
+      let max = 0; 
 
-  for (const year of data.row) {
-    if (+year > max) {
-      max = +year;
+      for (const row of data.rows) {
+        if (row.year > max) {
+          max = row.year;
+        }
+      }
+
+      const preaperedData = await client.query(
+        `SELECT * 
+          FROM public."Phones"
+          WHERE public."Phones"."year" = '${max}'
+          `
+      )
+
+      res.send(preaperedData.rows);
+      
+      break;
     }
   }
-
-  const preaperedData = await client.query(
-    `SELECT * 
-      FROM public."Phones"
-      WHERE public."Phones"."year" = ${max.toString()}
-      `
-  )
-
-  res.send(preaperedData.rows);
+  
 })
+
+
 
 app.get('/products/:productType', async (req: any, res: { send: (arg0: any) => void; }) => {
   const { productType } = req.params;
