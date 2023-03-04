@@ -34,6 +34,7 @@ app.get('/products/discount', async (req: any, res: { send: (arg0: any) => void;
 })
 
 app.get('/products/new', async (req: any, res: { send: (arg0: any) => void; }) => {
+  console.log('hhhh');
   const data = await client.query(`SELECT public."Phones"."year" 
       FROM public."Phones"`
   );

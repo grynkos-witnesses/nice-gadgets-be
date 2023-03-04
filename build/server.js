@@ -34,6 +34,7 @@ app.get('/products/discount', (req, res) => __awaiter(void 0, void 0, void 0, fu
     res.send(data.rows);
 }));
 app.get('/products/new', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    console.log('hhhh');
     const data = yield client.query(`SELECT public."Phones"."year" 
       FROM public."Phones"`);
     let max = 0;
