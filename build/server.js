@@ -27,6 +27,7 @@ app.get('/products', (req, res) => __awaiter(void 0, void 0, void 0, function* (
     const data = yield client.query(`SELECT * FROM public."Phones"`);
     res.send(data.rows);
 }));
+///
 app.get('/products/:productType', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { productType } = req.params;
     if (productType === 'tablets' || productType === 'accessories') {

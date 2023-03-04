@@ -24,6 +24,8 @@ app.get('/products', async (req: any, res: { send: (arg0: any) => void; }) => {
   res.send(data.rows);
 })
 
+///
+
 app.get('/products/:productType', async (req: any, res: { send: (arg0: any) => void; }) => {
   const { productType } = req.params;
 
