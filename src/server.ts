@@ -63,6 +63,15 @@ app.get('/products/:filter', async (req: any, res: { send: (arg0: any) => void; 
       
       break;
     }
+    default: {
+        const data = await client.query(`
+  SELECT * 
+  FROM public."phonesDetails"
+  WHERE public."phonesDetails"."id" = '${filter}'
+  `);
+
+  res.send(data.rows);
+    }
   }
   
 })
@@ -100,7 +109,19 @@ app.get('/products/:productType', async (req: any, res: { send: (arg0: any) => v
   res.send(data.rows);
 })
 
+// app.get('/products/:id', async (req: any, res: { send: (arg0: any) => void; }) => {
+//   const { id } = req.params;
 
+//   console.log('123');
+
+//   const data = await client.query(`
+//   SELECT * 
+//   FROM public."phonesDetails"
+//   WHERE public."phonesDetails"."id" = '${id}'
+//   `);
+
+//   res.send(data.rows);
+//  })
 // 
 // app.get('/phones/:id', async (req, res) => {
 //   const data = await read();
