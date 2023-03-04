@@ -34,6 +34,8 @@ app.get('/phones', async (req: any, res: { send: (arg0: any) => void; }) => {
       data: result,
       total: data.rows.length
     })
+
+    return;
   }
 
   res.send(data.rows);
