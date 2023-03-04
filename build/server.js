@@ -24,7 +24,20 @@ const PORT = 3000;
 const app = express();
 app.use(cors());
 app.get('/products', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const normalizedUrl = new url.URL(req.url, `http://${req.headers.host}`);
+    const params = normalizedUrl.searchParams;
+    const page = params.get('page');
+    const perPage = params.get('perPage');
     const data = yield client.query(`SELECT * FROM public."Phones"`);
+    if (page && perPage) {
+        const skipCount = +perPage * (+page - 1);
+        const result = data.rows.slice(skipCount, skipCount + +perPage);
+        res.send({
+            data: result,
+            total: data.rows.length
+        });
+        return;
+    }
     res.send(data.rows);
 }));
 app.get('/products/:filter', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
@@ -55,6 +68,14 @@ app.get('/products/:filter', (req, res) => __awaiter(void 0, void 0, void 0, fun
             res.send(preaperedData.rows);
             break;
         }
+        default: {
+            const data = yield client.query(`
+        SELECT * 
+        FROM public."phonesDetails"
+        WHERE public."phonesDetails"."id" = '${filter}'
+        `);
+            res.send(data.rows);
+        }
     }
 }));
 app.get('/products/:productType', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
@@ -63,22 +84,32 @@ app.get('/products/:productType', (req, res) => __awaiter(void 0, void 0, void 0
         res.send([]);
         return;
     }
-    const normalizedUrl = new url.URL(req.url, `http://${req.headers.host}`);
-    const params = normalizedUrl.searchParams;
-    const page = params.get('page');
-    const perPage = params.get('perPage');
-    const data = yield client.query(`SELECT * FROM public."Phones"`);
-    if (page && perPage) {
-        const skipCount = +perPage * (+page - 1);
-        const result = data.rows.slice(skipCount, skipCount + +perPage);
-        res.send({
-            data: result,
-            total: data.rows.length
-        });
-        return;
-    }
-    res.send(data.rows);
+    // const normalizedUrl = new url.URL(req.url, `http://${req.headers.host}`);
+    // const params = normalizedUrl.searchParams;
+    // const page = params.get('page');
+    // const perPage = params.get('perPage');
+    // const data = await client.query(`SELECT * FROM public."Phones"`);
+    // if (page && perPage) {
+    //   const skipCount = +perPage * (+page - 1);
+    //   const result = data.rows.slice(skipCount, skipCount + +perPage);
+    //   res.send({
+    //     data: result,
+    //     total: data.rows.length
+    //   })
+    //   return;
+    // }
+    // res.send(data.rows);
 }));
+// app.get('/products/:id', async (req: any, res: { send: (arg0: any) => void; }) => {
+//   const { id } = req.params;
+//   console.log('123');
+//   const data = await client.query(`
+//   SELECT * 
+//   FROM public."phonesDetails"
+//   WHERE public."phonesDetails"."id" = '${id}'
+//   `);
+//   res.send(data.rows);
+//  })
 // 
 // app.get('/phones/:id', async (req, res) => {
 //   const data = await read();
