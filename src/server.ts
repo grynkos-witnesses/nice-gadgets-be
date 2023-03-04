@@ -24,7 +24,37 @@ app.get('/products', async (req: any, res: { send: (arg0: any) => void; }) => {
   res.send(data.rows);
 })
 
-///
+app.get('/products/discount', async (req: any, res: { send: (arg0: any) => void; }) => {
+  const data = await client.query(`SELECT * 
+      FROM public."Phones"
+      WHERE public."Phones"."fullPrice" - public."Phones"."price" >= 95"`
+  );
+
+  res.send(data.rows);
+})
+
+app.get('/products/new', async (req: any, res: { send: (arg0: any) => void; }) => {
+  const data = await client.query(`SELECT public."Phones"."year" 
+      FROM public."Phones"`
+  );
+
+  let max = 0; 
+
+  for (const year of data.row) {
+    if (+year > max) {
+      max = +year;
+    }
+  }
+
+  const preaperedData = await client.query(
+    `SELECT * 
+      FROM public."Phones"
+      WHERE public."Phones"."year" = ${max}
+      `
+  )
+
+  res.send(preaperedData.rows);
+})
 
 app.get('/products/:productType', async (req: any, res: { send: (arg0: any) => void; }) => {
   const { productType } = req.params;
