@@ -23,7 +23,12 @@ client.connect();
 const PORT = 3000;
 const app = express();
 app.use(cors());
-app.get('/phones', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+app.get('/products/:productType', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const { productType } = req.params;
+    if (productType === 'tablets' || productType === 'accessories') {
+        res.send([]);
+        return;
+    }
     const normalizedUrl = new url.URL(req.url, `http://${req.headers.host}`);
     const params = normalizedUrl.searchParams;
     const page = params.get('page');

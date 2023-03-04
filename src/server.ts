@@ -18,7 +18,15 @@ const app = express();
 
 app.use(cors());
 
-app.get('/phones', async (req: any, res: { send: (arg0: any) => void; }) => {
+app.get('/products/:productType', async (req: any, res: { send: (arg0: any) => void; }) => {
+  const { productType } = req.params;
+
+  if (productType === 'tablets' || productType === 'accessories') {
+    res.send([]);
+
+    return;
+  }
+
   const normalizedUrl = new url.URL(req.url, `http://${req.headers.host}`);
   const params = normalizedUrl.searchParams;
   const page = params.get('page');
