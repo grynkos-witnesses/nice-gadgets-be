@@ -39,6 +39,8 @@ app.get('/phones', async (req: any, res: { send: (arg0: any) => void; }) => {
   res.send(data.rows);
 })
 
+
+// 
 // app.get('/phones/:id', async (req, res) => {
 //   const data = await read();
 //   const {id} = req.params;
