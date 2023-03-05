@@ -26,9 +26,56 @@ app.use(cors());
 app.get('/products', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const normalizedUrl = new url.URL(req.url, `http://${req.headers.host}`);
     const params = normalizedUrl.searchParams;
-    const page = params.get('page');
-    const perPage = params.get('perPage');
-    const data = yield client.query(`SELECT * FROM public."Phones"`);
+    let page = params.get('page');
+    let perPage = params.get('perPage');
+    const sortBy = params.get('sortBy');
+    let sortByData;
+    if (sortBy) {
+        switch (sortBy) {
+            case 'name':
+                {
+                    sortByData = yield client.query(`
+          SELECT * 
+          FROM public."Phones"
+          ORDER BY public."Phones"."name"
+        `);
+                    break;
+                }
+            case 'price':
+                {
+                    sortByData = yield client.query(`
+          SELECT * 
+          FROM public."Phones"
+          ORDER BY public."Phones"."price"
+        `);
+                    break;
+                }
+            case 'year':
+                {
+                    sortByData = yield client.query(`
+          SELECT * 
+          FROM public."Phones"
+          ORDER BY public."Phones"."year" desc
+        `);
+                    break;
+                }
+        }
+    }
+    let data;
+    if (sortByData) {
+        data = sortByData;
+    }
+    else {
+        data = yield client.query(`SELECT * FROM public."Phones"`);
+    }
+    // if ((!page || !perPage )&& sortByData) {
+    //   res.send({
+    //     data: sortByData.rows,
+    //     total: sortByData.rows.length
+    //   }
+    //   )
+    //   return;
+    // }
     if (page && perPage) {
         const skipCount = +perPage * (+page - 1);
         const result = data.rows.slice(skipCount, skipCount + +perPage);
