@@ -41,7 +41,7 @@ app.get('/products', (req, res) => __awaiter(void 0, void 0, void 0, function* (
         `);
                     break;
                 }
-            case 'price':
+            case 'cheep':
                 {
                     sortByData = yield client.query(`
           SELECT * 
@@ -50,12 +50,30 @@ app.get('/products', (req, res) => __awaiter(void 0, void 0, void 0, function* (
         `);
                     break;
                 }
-            case 'year':
+            case 'expensive':
+                {
+                    sortByData = yield client.query(`
+          SELECT * 
+          FROM public."Phones"
+          ORDER BY public."Phones"."price" desc
+        `);
+                    break;
+                }
+            case 'newest':
                 {
                     sortByData = yield client.query(`
           SELECT * 
           FROM public."Phones"
           ORDER BY public."Phones"."year" desc
+        `);
+                    break;
+                }
+            case 'oldest':
+                {
+                    sortByData = yield client.query(`
+          SELECT * 
+          FROM public."Phones"
+          ORDER BY public."Phones"."year" 
         `);
                     break;
                 }
@@ -147,9 +165,14 @@ app.get('/products/:productType', (req, res) => __awaiter(void 0, void 0, void 0
     // }
     // res.send(data.rows);
 }));
-app.get('/products/:id/:recomended', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const { id } = req.params.id;
-    const { recomended } = req.params.id;
+app.get('/products/:phoneId/:recomended', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const { phoneId } = req.params.phoneId;
+    const { recomended } = req.params.recomended;
+    console.log(phoneId);
+    if (phoneId === 'new' || phoneId === 'discount') {
+        res.send([]);
+        return;
+    }
     const data = yield client.query(`SELECT * FROM public."Phones" LIMIT 4`);
     res.send(data.rows);
 }));
