@@ -39,20 +39,40 @@ app.get('/products', async (req: any, res: { send: (arg0: any) => void; }) => {
         `);
         break;}
       
-      case 'price':
+      case 'cheep':
         {sortByData = await client.query(`
           SELECT * 
           FROM public."Phones"
           ORDER BY public."Phones"."price"
         `);
         
+          break;
+        }
+        
+        case 'expensive':
+        {sortByData = await client.query(`
+          SELECT * 
+          FROM public."Phones"
+          ORDER BY public."Phones"."price" desc
+        `);
+        
         break;}
     
-      case 'year':
+      case 'newest':
         {sortByData = await client.query(`
           SELECT * 
           FROM public."Phones"
           ORDER BY public."Phones"."year" desc
+        `);
+        
+          break;
+        }
+        
+        case 'oldest':
+        {sortByData = await client.query(`
+          SELECT * 
+          FROM public."Phones"
+          ORDER BY public."Phones"."year" 
         `);
         
         break;}
@@ -176,6 +196,24 @@ app.get('/products/:productType', async (req: any, res: { send: (arg0: any) => v
 
   // res.send(data.rows);
 })
+
+app.get('/products/:phoneId/:recomended', async (req: any, res: { send: (arg0: any) => void; }) => {
+  const { phoneId } = req.params.phoneId;
+  const { recomended } = req.params.recomended;
+
+  console.log(phoneId);
+
+  if (phoneId === 'new' || phoneId === 'discount') {
+    res.send([])
+    return;
+  }
+
+
+  const data = await client.query(`SELECT * FROM public."Phones" LIMIT 4`);
+
+
+  res.send(data.rows);
+  })
 
 // app.get('/products/:id', async (req: any, res: { send: (arg0: any) => void; }) => {
 //   const { id } = req.params;

@@ -147,6 +147,12 @@ app.get('/products/:productType', (req, res) => __awaiter(void 0, void 0, void 0
     // }
     // res.send(data.rows);
 }));
+app.get('/products/:id/:recomended', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const { id } = req.params.id;
+    const { recomended } = req.params.id;
+    const data = yield client.query(`SELECT * FROM public."Phones" LIMIT 4`);
+    res.send(data.rows);
+}));
 // app.get('/products/:id', async (req: any, res: { send: (arg0: any) => void; }) => {
 //   const { id } = req.params;
 //   console.log('123');
