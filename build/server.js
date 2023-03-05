@@ -133,6 +133,14 @@ app.get('/products/:filter', (req, res) => __awaiter(void 0, void 0, void 0, fun
             res.send(preaperedData.rows);
             break;
         }
+        case 'accessories': {
+            res.send([]);
+            break;
+        }
+        case 'tablets': {
+            res.send([]);
+            break;
+        }
         default: {
             const data = yield client.query(`
         SELECT * 
@@ -143,33 +151,25 @@ app.get('/products/:filter', (req, res) => __awaiter(void 0, void 0, void 0, fun
         }
     }
 }));
-app.get('/products/:productType', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const { productType } = req.params;
-    if (productType === 'tablets' || productType === 'accessories') {
-        res.send([]);
-        return;
-    }
-    // const normalizedUrl = new url.URL(req.url, `http://${req.headers.host}`);
-    // const params = normalizedUrl.searchParams;
-    // const page = params.get('page');
-    // const perPage = params.get('perPage');
-    // const data = await client.query(`SELECT * FROM public."Phones"`);
-    // if (page && perPage) {
-    //   const skipCount = +perPage * (+page - 1);
-    //   const result = data.rows.slice(skipCount, skipCount + +perPage);
-    //   res.send({
-    //     data: result,
-    //     total: data.rows.length
-    //   })
-    //   return;
-    // }
-    // res.send(data.rows);
-}));
+// const normalizedUrl = new url.URL(req.url, `http://${req.headers.host}`);
+// const params = normalizedUrl.searchParams;
+// const page = params.get('page');
+// const perPage = params.get('perPage');
+// const data = await client.query(`SELECT * FROM public."Phones"`);
+// if (page && perPage) {
+//   const skipCount = +perPage * (+page - 1);
+//   const result = data.rows.slice(skipCount, skipCount + +perPage);
+//   res.send({
+//     data: result,
+//     total: data.rows.length
+//   })
+//   return;
+// }
+// res.send(data.rows);
 app.get('/products/:phoneId/:recomended', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const { phoneId } = req.params.phoneId;
-    const { recomended } = req.params.recomended;
-    console.log(phoneId);
-    if (phoneId === 'new' || phoneId === 'discount') {
+    const params = req.url.split('/');
+    const phoneId = params[2];
+    if (phoneId === 'tablets' || phoneId === 'discount' || phoneId === 'new' || phoneId === 'accessories') {
         res.send([]);
         return;
     }

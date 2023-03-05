@@ -151,6 +151,18 @@ app.get('/products/:filter', async (req: any, res: { send: (arg0: any) => void; 
       
       break;
     }
+    
+    case 'accessories': {
+      res.send([]);
+
+      break;
+    }
+      
+    case 'tablets': {
+      res.send([]);
+
+      break;
+    }
     default: {
         const data = await client.query(`
         SELECT * 
@@ -163,18 +175,6 @@ app.get('/products/:filter', async (req: any, res: { send: (arg0: any) => void; 
   }
   
 })
-
-
-
-app.get('/products/:productType', async (req: any, res: { send: (arg0: any) => void; }) => {
-  const { productType } = req.params;
-
-  if (productType === 'tablets' || productType === 'accessories') {
-    res.send([]);
-
-    return;
-  }
-
   // const normalizedUrl = new url.URL(req.url, `http://${req.headers.host}`);
   // const params = normalizedUrl.searchParams;
   // const page = params.get('page');
@@ -195,15 +195,12 @@ app.get('/products/:productType', async (req: any, res: { send: (arg0: any) => v
   // }
 
   // res.send(data.rows);
-})
 
 app.get('/products/:phoneId/:recomended', async (req: any, res: { send: (arg0: any) => void; }) => {
-  const { phoneId } = req.params.phoneId;
-  const { recomended } = req.params.recomended;
+  const params = req.url.split('/');
+  const phoneId  = params[2];
 
-  console.log(phoneId);
-
-  if (phoneId === 'new' || phoneId === 'discount') {
+  if (phoneId === 'tablets' || phoneId === 'discount' || phoneId === 'new' || phoneId === 'accessories') {
     res.send([])
     return;
   }
