@@ -18,10 +18,7 @@ const app = express();
 
 app.use(cors());
 
-app.get('/products', async (req: any, res: { send: (arg0: any) => void; }) => {
-
-
-  
+app.get('/products', async (req: any, res: { send: (arg0: any) => void; }) => { 
   const normalizedUrl = new url.URL(req.url, `http://${req.headers.host}`);
   const params = normalizedUrl.searchParams;
   let page = params.get('page');
@@ -31,51 +28,50 @@ app.get('/products', async (req: any, res: { send: (arg0: any) => void; }) => {
 
   if (sortBy) {
     switch (sortBy) {
-      case 'name':
-        {sortByData = await client.query(`
+      case 'name': {
+        sortByData = await client.query(`
           SELECT * 
           FROM public."Phones"
           ORDER BY public."Phones"."name"
         `);
-        break;}
-      
-      case 'cheep':
-        {sortByData = await client.query(`
+        break;
+      }   
+      case 'cheep': {
+        sortByData = await client.query(`
           SELECT * 
           FROM public."Phones"
           ORDER BY public."Phones"."price"
         `);
         
           break;
-        }
-        
-        case 'expensive':
-        {sortByData = await client.query(`
+      }  
+      case 'expensive':{
+        sortByData = await client.query(`
           SELECT * 
           FROM public."Phones"
           ORDER BY public."Phones"."price" desc
         `);
         
-        break;}
-    
-      case 'newest':
-        {sortByData = await client.query(`
+        break;
+      } 
+      case 'newest':{
+        sortByData = await client.query(`
           SELECT * 
           FROM public."Phones"
           ORDER BY public."Phones"."year" desc
         `);
         
           break;
-        }
-        
-        case 'oldest':
-        {sortByData = await client.query(`
+        }       
+        case 'oldest':{
+        sortByData = await client.query(`
           SELECT * 
           FROM public."Phones"
           ORDER BY public."Phones"."year" 
         `);
         
-        break;}
+        break;
+      }
     }
   }
 
@@ -86,16 +82,6 @@ app.get('/products', async (req: any, res: { send: (arg0: any) => void; }) => {
   } else {
       data = await client.query(`SELECT * FROM public."Phones"`);
   }
-
-  // if ((!page || !perPage )&& sortByData) {
-  //   res.send({
-  //     data: sortByData.rows,
-  //     total: sortByData.rows.length
-  //   }
-  //   )
-
-  //   return;
-  // }
   
   if (page && perPage) {
     const skipCount = +perPage * (+page - 1);
@@ -150,14 +136,12 @@ app.get('/products/:filter', async (req: any, res: { send: (arg0: any) => void; 
       res.send(preaperedData.rows);
       
       break;
-    }
-    
+    }   
     case 'accessories': {
       res.send([]);
 
       break;
-    }
-      
+    }      
     case 'tablets': {
       res.send([]);
 
@@ -172,29 +156,8 @@ app.get('/products/:filter', async (req: any, res: { send: (arg0: any) => void; 
 
         res.send(data.rows);
     }
-  }
-  
+  }  
 })
-  // const normalizedUrl = new url.URL(req.url, `http://${req.headers.host}`);
-  // const params = normalizedUrl.searchParams;
-  // const page = params.get('page');
-  // const perPage = params.get('perPage');
-
-  // const data = await client.query(`SELECT * FROM public."Phones"`);
-  
-  // if (page && perPage) {
-  //   const skipCount = +perPage * (+page - 1);
-  //   const result = data.rows.slice(skipCount, skipCount + +perPage);
-
-  //   res.send({
-  //     data: result,
-  //     total: data.rows.length
-  //   })
-
-  //   return;
-  // }
-
-  // res.send(data.rows);
 
 app.get('/products/:phoneId/:recomended', async (req: any, res: { send: (arg0: any) => void; }) => {
   const params = req.url.split('/');
@@ -205,36 +168,10 @@ app.get('/products/:phoneId/:recomended', async (req: any, res: { send: (arg0: a
     return;
   }
 
-
   const data = await client.query(`SELECT * FROM public."Phones" LIMIT 4`);
-
 
   res.send(data.rows);
   })
-
-// app.get('/products/:id', async (req: any, res: { send: (arg0: any) => void; }) => {
-//   const { id } = req.params;
-
-//   console.log('123');
-
-//   const data = await client.query(`
-//   SELECT * 
-//   FROM public."phonesDetails"
-//   WHERE public."phonesDetails"."id" = '${id}'
-//   `);
-
-//   res.send(data.rows);
-//  })
-// 
-// app.get('/phones/:id', async (req, res) => {
-//   const data = await read();
-//   const {id} = req.params;
-//   const foundData = data.find(d => d.id === id);
-
-
-
-//   res.send(foundData);
-// })
 
 app.listen(process.env.PORT || PORT, () => {
    console.log(`API is ready on http://localhost:${PORT}`);

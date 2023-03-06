@@ -32,51 +32,46 @@ app.get('/products', (req, res) => __awaiter(void 0, void 0, void 0, function* (
     let sortByData;
     if (sortBy) {
         switch (sortBy) {
-            case 'name':
-                {
-                    sortByData = yield client.query(`
+            case 'name': {
+                sortByData = yield client.query(`
           SELECT * 
           FROM public."Phones"
           ORDER BY public."Phones"."name"
         `);
-                    break;
-                }
-            case 'cheep':
-                {
-                    sortByData = yield client.query(`
+                break;
+            }
+            case 'cheep': {
+                sortByData = yield client.query(`
           SELECT * 
           FROM public."Phones"
           ORDER BY public."Phones"."price"
         `);
-                    break;
-                }
-            case 'expensive':
-                {
-                    sortByData = yield client.query(`
+                break;
+            }
+            case 'expensive': {
+                sortByData = yield client.query(`
           SELECT * 
           FROM public."Phones"
           ORDER BY public."Phones"."price" desc
         `);
-                    break;
-                }
-            case 'newest':
-                {
-                    sortByData = yield client.query(`
+                break;
+            }
+            case 'newest': {
+                sortByData = yield client.query(`
           SELECT * 
           FROM public."Phones"
           ORDER BY public."Phones"."year" desc
         `);
-                    break;
-                }
-            case 'oldest':
-                {
-                    sortByData = yield client.query(`
+                break;
+            }
+            case 'oldest': {
+                sortByData = yield client.query(`
           SELECT * 
           FROM public."Phones"
           ORDER BY public."Phones"."year" 
         `);
-                    break;
-                }
+                break;
+            }
         }
     }
     let data;
@@ -86,14 +81,6 @@ app.get('/products', (req, res) => __awaiter(void 0, void 0, void 0, function* (
     else {
         data = yield client.query(`SELECT * FROM public."Phones"`);
     }
-    // if ((!page || !perPage )&& sortByData) {
-    //   res.send({
-    //     data: sortByData.rows,
-    //     total: sortByData.rows.length
-    //   }
-    //   )
-    //   return;
-    // }
     if (page && perPage) {
         const skipCount = +perPage * (+page - 1);
         const result = data.rows.slice(skipCount, skipCount + +perPage);
@@ -151,21 +138,6 @@ app.get('/products/:filter', (req, res) => __awaiter(void 0, void 0, void 0, fun
         }
     }
 }));
-// const normalizedUrl = new url.URL(req.url, `http://${req.headers.host}`);
-// const params = normalizedUrl.searchParams;
-// const page = params.get('page');
-// const perPage = params.get('perPage');
-// const data = await client.query(`SELECT * FROM public."Phones"`);
-// if (page && perPage) {
-//   const skipCount = +perPage * (+page - 1);
-//   const result = data.rows.slice(skipCount, skipCount + +perPage);
-//   res.send({
-//     data: result,
-//     total: data.rows.length
-//   })
-//   return;
-// }
-// res.send(data.rows);
 app.get('/products/:phoneId/:recomended', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const params = req.url.split('/');
     const phoneId = params[2];
@@ -176,23 +148,6 @@ app.get('/products/:phoneId/:recomended', (req, res) => __awaiter(void 0, void 0
     const data = yield client.query(`SELECT * FROM public."Phones" LIMIT 4`);
     res.send(data.rows);
 }));
-// app.get('/products/:id', async (req: any, res: { send: (arg0: any) => void; }) => {
-//   const { id } = req.params;
-//   console.log('123');
-//   const data = await client.query(`
-//   SELECT * 
-//   FROM public."phonesDetails"
-//   WHERE public."phonesDetails"."id" = '${id}'
-//   `);
-//   res.send(data.rows);
-//  })
-// 
-// app.get('/phones/:id', async (req, res) => {
-//   const data = await read();
-//   const {id} = req.params;
-//   const foundData = data.find(d => d.id === id);
-//   res.send(foundData);
-// })
 app.listen(process.env.PORT || PORT, () => {
     console.log(`API is ready on http://localhost:${PORT}`);
 });
