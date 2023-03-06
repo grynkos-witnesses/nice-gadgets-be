@@ -1,16 +1,17 @@
 const express = require('express');
 const cors = require('cors');
-const { Client } = require('pg')
+const productsServices = require('./services/products');
+// const { Client } = require('pg');
 const url = require('url');
 
-const client = new Client({
-        user: "victoria-kovalenko",
-        password: "bz0odCuy6msa",
-        database: "neondb",
-        host: "ep-snowy-pond-231923.eu-central-1.aws.neon.tech",
-        ssl: true
-    });
-client.connect();
+// const client = new Client({
+//         user: "victoria-kovalenko",
+//         password: "bz0odCuy6msa",
+//         database: "neondb",
+//         host: "ep-snowy-pond-231923.eu-central-1.aws.neon.tech",
+//         ssl: true
+//     });
+// client.connect();
 
 const PORT = 3000;
 
@@ -27,52 +28,7 @@ app.get('/products', async (req: any, res: { send: (arg0: any) => void; }) => {
   let sortByData: any;
 
   if (sortBy) {
-    switch (sortBy) {
-      case 'name': {
-        sortByData = await client.query(`
-          SELECT * 
-          FROM public."Phones"
-          ORDER BY public."Phones"."name"
-        `);
-        break;
-      }   
-      case 'cheep': {
-        sortByData = await client.query(`
-          SELECT * 
-          FROM public."Phones"
-          ORDER BY public."Phones"."price"
-        `);
-        
-          break;
-      }  
-      case 'expensive':{
-        sortByData = await client.query(`
-          SELECT * 
-          FROM public."Phones"
-          ORDER BY public."Phones"."price" desc
-        `);
-        
-        break;
-      } 
-      case 'newest':{
-        sortByData = await client.query(`
-          SELECT * 
-          FROM public."Phones"
-          ORDER BY public."Phones"."year" desc
-        `);
-        
-          break;
-        }       
-        case 'oldest':{
-        sortByData = await client.query(`
-          SELECT * 
-          FROM public."Phones"
-          ORDER BY public."Phones"."year" 
-        `);
-        
-        break;
-      }
-    }
+    sortByData = await productsServices.sortByQuery(sortBy);
   }
 
   let data;
@@ -80,7 +36,7 @@ app.get('/products', async (req: any, res: { send: (arg0: any) => void; }) => {
   if (sortByData) {
     data = sortByData;
   } else {
-      data = await client.query(`SELECT * FROM public."Phones"`);
+    data = await productsServices.getAll();
   }
   
   if (page && perPage) {
@@ -100,75 +56,23 @@ app.get('/products', async (req: any, res: { send: (arg0: any) => void; }) => {
 
 app.get('/products/:filter', async (req: any, res: { send: (arg0: any) => void; }) => {
   const { filter } = req.params;
-  switch (filter) {
-    case 'discount': {
-      const data = await client.query(`SELECT * 
-      FROM public."Phones"
-      WHERE public."Phones"."fullPrice" - public."Phones"."price" >= 95`
-      );
 
-      res.send(data.rows);
+  const data = await productsServices.getByFilter(filter);
 
-      break;
-    }
-    case 'new': {
-      const data = await client.query(`
-        SELECT public."Phones"."year" 
-        FROM public."Phones"
-        `
-      );
+  if (data.length === 0) {
+    res.send([]);
 
-      let max = 0; 
+    return;
+  }
 
-      for (const row of data.rows) {
-        if (row.year > max) {
-          max = row.year;
-        }
-      }
-
-      const preaperedData = await client.query(
-        `SELECT * 
-          FROM public."Phones"
-          WHERE public."Phones"."year" = '${max}'
-          `
-      )
-
-      res.send(preaperedData.rows);
-      
-      break;
-    }   
-    case 'accessories': {
-      res.send([]);
-
-      break;
-    }      
-    case 'tablets': {
-      res.send([]);
-
-      break;
-    }
-    default: {
-        const data = await client.query(`
-        SELECT * 
-        FROM public."phonesDetails"
-        WHERE public."phonesDetails"."id" = '${filter}'
-        `);
-
-        res.send(data.rows);
-    }
-  }  
+  res.send(data.rows);
 })
 
 app.get('/products/:phoneId/:recomended', async (req: any, res: { send: (arg0: any) => void; }) => {
   const params = req.url.split('/');
   const phoneId  = params[2];
 
-  if (phoneId === 'tablets' || phoneId === 'discount' || phoneId === 'new' || phoneId === 'accessories') {
-    res.send([])
-    return;
-  }
-
-  const data = await client.query(`SELECT * FROM public."Phones" LIMIT 4`);
+  const data = await productsServices.getForRecomended(phoneId);
 
   res.send(data.rows);
   })
