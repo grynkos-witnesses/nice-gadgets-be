@@ -55,6 +55,12 @@ async function getFilteredData(req: any, res: { send: (arg0: any) => void; }) {
     return;
   }
 
+  if (data.rows.length === 1) {
+    res.send(data.rows[0]);
+
+    return;
+  }
+
   res.send(data.rows);
 }
 
