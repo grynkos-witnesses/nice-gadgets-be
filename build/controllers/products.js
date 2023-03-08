@@ -54,6 +54,10 @@ function getFilteredData(req, res) {
             res.send([]);
             return;
         }
+        if (data.rows.length === 1) {
+            res.send(data.rows[0]);
+            return;
+        }
         res.send(data.rows);
     });
 }
