@@ -129,7 +129,7 @@ function getForRecomended(phoneId:string) {
     return [];
   }
 
-  return client.query(`SELECT * FROM public."Phones" LIMIT 4`);
+  return client.query(`SELECT * FROM public."Phones" LIMIT 8`);
 }
 
 module.exports = {

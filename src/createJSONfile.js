@@ -15,5 +15,5 @@ directory.forEach((file) => {
   fs.appendFileSync('result.json', s);
   fs.appendFileSync('result.json', ',');
 
-  files.push(JSON.parse(data.toString()));
+  // files.push(JSON.parse(data.toString()));
 })

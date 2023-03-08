@@ -117,7 +117,7 @@ function getForRecomended(phoneId) {
     if (phoneId === 'tablets' || phoneId === 'discount' || phoneId === 'new' || phoneId === 'accessories') {
         return [];
     }
-    return client.query(`SELECT * FROM public."Phones" LIMIT 4`);
+    return client.query(`SELECT * FROM public."Phones" LIMIT 8`);
 }
 module.exports = {
     sortByQuery, getAll, getByFilter, getForRecomended
