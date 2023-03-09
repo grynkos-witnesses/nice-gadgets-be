@@ -1,4 +1,4 @@
-# Nice-gadgets-be
+# Nice Gadgets Store (be)
 
 This is a backend project built using Node.js and other related technologies.
 
@@ -6,12 +6,12 @@ This is a backend project built using Node.js and other related technologies.
 
 The following technologies were used to build this project:
 
-* Node.js: A JavaScript runtime built on Chrome's V8 JavaScript engine.
-* Express.js: A minimalist web framework for Node.js used to build web applications and APIs.
-* PostgreSQL: A database used to store and manage data.
-* Sequlize: A PostgreSQL object modeling tool designed to work in an asynchronous environment.
-* Heroku: A platform as a service (PaaS) that enables developers to build, run, and operate applications entirely in the cloud.
-* CORS policy: An HTTP-header based mechanism that allows a server to indicate any origins (domain, scheme, or port) other than its own from which a browser should permit loading resources.
+* **Node.js**: A JavaScript runtime built on Chrome's V8 JavaScript engine.
+* **Express.js**: A minimalist web framework for Node.js used to build web applications and APIs.
+* **PostgreSQL**: A database used to store and manage data.
+* **Sequlize**: A PostgreSQL object modeling tool designed to work in an asynchronous environment.
+* **Heroku**: A platform as a service (PaaS) that enables developers to build, run, and operate applications entirely in the cloud.
+* **CORS policy**: An HTTP-header based mechanism that allows a server to indicate any origins (domain, scheme, or port) other than its own from which a browser should permit loading resources.
 
 ## Getting Started
 To get started with this project, you will need to have Node.js and NeonDB on your machine. You will also need to set up a config.json file with the necessary data from your NeonDB(user, password, etc) for migration mockup_data into your DB. After you do this add the following:
@@ -44,7 +44,7 @@ Once you have set up this, you can run the project using the following command:
 ```
 npm start:local src/server.ts
 ```
-This will start the Node.js server on port 3000 by default. You can then access the API using a tool like Postman or a web browser.
+This will start the Node.js server on  http://localhost:3000. by default. You can then access the API using a tool like Postman or a web browser.
 
 ## API Documentation
 The API documentation can be found in the src/services folder of this project. It contains information on the available endpoints, request and response formats, and authentication requirements.
