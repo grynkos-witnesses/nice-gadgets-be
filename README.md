@@ -44,7 +44,7 @@ Once you have set up this, you can run the project using the following command:
 ```
 npm start:local src/server.ts
 ```
-This will start the Node.js server on  http://localhost:3000. by default. You can then access the API using a tool like Postman or a web browser.
+This will start the Node.js server on  http://localhost:3000 by default. You can then access the API using a tool like Postman or a web browser.
 
 ## API Documentation
 The API documentation can be found in the src/services folder of this project. It contains information on the available endpoints, request and response formats, and authentication requirements.
