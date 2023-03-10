@@ -54,6 +54,13 @@ function getFilteredData(req, res) {
             res.send([]);
             return;
         }
+        if (filter === 'tablets') {
+            res.send({
+                data: data.rows,
+                total: data.rows.length
+            });
+            return;
+        }
         if (data.rows.length === 1) {
             res.send(data.rows[0]);
             return;
