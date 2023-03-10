@@ -1069,7 +1069,7 @@
     "category": "tablets",
     "phoneId": "apple-ipad-air-256gb-blue",
     "itemId": "apple-ipad-air-256gb-blue",
-    "name": "Apple Ipad Air 256gb",
+    "name": "Apple Ipad Air 256GB",
     "fullPrice": 1200,
     "price": 1160,
     "screen": "6.1' IPS",
@@ -1077,14 +1077,14 @@
     "color": "blue",
     "ram": "3GB",
     "year": 2022,
-    "image": "img/phones/apple-ipad-air-2022-256gb/blue/00.jpg"
+    "image": "img/phones/apple-ipad-air-2022-256gb/blue/00.jpeg"
   },
   {
     "id": "73",
     "category": "tablets",
     "phoneId": "apple-ipad-air-64gb-spacegray",
     "itemId": "apple-ipad-air-64gb-spacegray",
-    "name": "Apple Ipad Air 64gb",
+    "name": "Apple Ipad Air 64GB",
     "fullPrice": 1150,
     "price": 1100,
     "screen": "6.1' IPS",
@@ -1092,14 +1092,14 @@
     "color": "spacegray",
     "ram": "3GB",
     "year": 2022,
-    "image": "img/phones/apple-ipad-air-2022-64gb/spacegray/00.jpg"
+    "image": "img/phones/apple-ipad-air-2022-64gb/spacegray/00.jpeg"
   },
   {
     "id": "74",
     "category": "tablets",
     "phoneId": "apple-ipad-pro-11-128gb-silver",
     "itemId": "apple-ipad-pro-11-128gb-silver",
-    "name": "Apple Ipad Pro 11 128gb",
+    "name": "Apple Ipad Pro 11 128GB",
     "fullPrice": 970,
     "price": 955,
     "screen": "6.1' IPS",
@@ -1107,14 +1107,14 @@
     "color": "silver",
     "ram": "3GB",
     "year": 2018,
-    "image": "img/phones/apple-ipad-pro-11-128gb/silver/00.jpg"
+    "image": "img/phones/apple-ipad-pro-11-128gb/silver/00.jpeg"
   },
   {
     "id": "75",
     "category": "tablets",
     "phoneId": "apple-ipad-pro-11-256gb-silver",
     "itemId": "apple-ipad-pro-11-256gb-silver",
-    "name": "Apple Ipad Pro 11 256gb",
+    "name": "Apple Ipad Pro 11 256GB",
     "fullPrice": 995,
     "price": 970,
     "screen": "6.1' IPS",
@@ -1122,6 +1122,6 @@
     "color": "silver",
     "ram": "3GB",
     "year": 2018,
-    "image": "img/phones/apple-ipad-pro-11-256gb/silver/00.jpg"
+    "image": "img/phones/apple-ipad-pro-11-256gb/silver/00.jpeg"
   }
 ]

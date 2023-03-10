@@ -3218,7 +3218,7 @@
 {
   "id": "apple-ipad-air-64gb-spacegray",
   "namespaceId": "apple-ipad-air-64gb",
-  "name": "Apple Ipad Air 64gb Spacegray",
+  "name": "Apple Ipad Air 64GB Spacegray",
   "capacityAvailable": [ "64GB","256GB"],
   "capacity": "64GB",
   "priceRegular": 1150,
@@ -3226,9 +3226,9 @@
   "colorsAvailable": ["spacegray", "blue"],
   "color": "spacegray",
   "images": [
-    "img/phones/apple-ipad-air-2022-64gb/spacegray/00.jpg",
-    "img/phones/apple-ipad-air-2022-64gb/spacegray/01.jpg",
-    "img/phones/apple-ipad-air-2022-64gb/spacegray/02.jpg"
+    "img/phones/apple-ipad-air-2022-64gb/spacegray/00.jpeg",
+    "img/phones/apple-ipad-air-2022-64gb/spacegray/01.jpeg",
+    "img/phones/apple-ipad-air-2022-64gb/spacegray/02.jpeg"
   ],
   "description": [
     {
@@ -3270,7 +3270,7 @@
 {
   "id": "apple-ipad-air-256gb-blue",
   "namespaceId": "apple-ipad-air-256gb",
-  "name": "Apple Ipad Air 256gb Blue",
+  "name": "Apple Ipad Air 256GB Blue",
   "capacityAvailable": [ "64GB","256GB"],
   "capacity": "256GB",
   "priceRegular": 1200,
@@ -3278,9 +3278,9 @@
   "colorsAvailable": ["spacegray", "blue"],
   "color": "blue",
   "images": [
-    "img/phones/apple-ipad-air-2022-256gb/blue/00.jpg",
-    "img/phones/apple-ipad-air-2022-256gb/blue/01.jpg",
-    "img/phones/apple-ipad-air-2022-256gb/blue/02.jpg"
+    "img/phones/apple-ipad-air-2022-256gb/blue/00.jpeg",
+    "img/phones/apple-ipad-air-2022-256gb/blue/01.jpeg",
+    "img/phones/apple-ipad-air-2022-256gb/blue/02.jpeg"
   ],
   "description": [
     {
@@ -3322,7 +3322,7 @@
 {
   "id": "apple-ipad-pro-11-128gb-silver",
   "namespaceId": "apple-ipad-pro-11-128gb",
-  "name": "Apple Ipad Pro 11 128gb Silver",
+  "name": "Apple Ipad Pro 11 128GB Silver",
   "capacityAvailable": [
     "128GB",
     "256GB"
@@ -3336,10 +3336,10 @@
   ],
   "color": "silver",
   "images": [
-    "img/phones/apple-ipad-pro-11-128gb/silver/00.jpg",
-    "img/phones/apple-ipad-pro-11-128gb/silver/01.jpg",
-    "img/phones/apple-ipad-pro-11-128gb/silver/02.jpg",
-    "img/phones/apple-ipad-pro-11-128gb/silver/03.jpg"
+    "img/phones/apple-ipad-pro-11-128gb/silver/00.jpeg",
+    "img/phones/apple-ipad-pro-11-128gb/silver/01.jpeg",
+    "img/phones/apple-ipad-pro-11-128gb/silver/02.jpeg",
+    "img/phones/apple-ipad-pro-11-128gb/silver/03.jpeg"
   ],
   "description": [
     {
@@ -3381,7 +3381,7 @@
 {
   "id": "apple-ipad-pro-11-256gb-silver",
   "namespaceId": "apple-ipad-pro-11-256gb",
-  "name": "Apple Ipad Pro 11 256gb Silver",
+  "name": "Apple Ipad Pro 11 256GB Silver",
   "capacityAvailable": [
     "128GB",
     "256GB"
@@ -3395,10 +3395,10 @@
   ],
   "color": "silver",
   "images": [
-    "img/phones/apple-ipad-pro-11-256gb/silver/00.jpg",
-    "img/phones/apple-ipad-pro-11-256gb/silver/01.jpg",
-    "img/phones/apple-ipad-pro-11-256gb/silver/02.jpg",
-    "img/phones/apple-ipad-pro-11-256gb/silver/03.jpg"
+    "img/phones/apple-ipad-pro-11-256gb/silver/00.jpeg",
+    "img/phones/apple-ipad-pro-11-256gb/silver/01.jpeg",
+    "img/phones/apple-ipad-pro-11-256gb/silver/02.jpeg",
+    "img/phones/apple-ipad-pro-11-256gb/silver/03.jpeg"
   ],
   "description": [
     {
