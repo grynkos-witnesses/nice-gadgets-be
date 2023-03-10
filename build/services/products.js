@@ -24,6 +24,7 @@ function sortByQuery(sortBy) {
             sortByData = client.query(`
           SELECT * 
           FROM public."Phones"
+          WHERE public."Phones"."category" = 'phones'
           ORDER BY public."Phones"."name"
         `);
             break;
@@ -32,6 +33,7 @@ function sortByQuery(sortBy) {
             sortByData = client.query(`
           SELECT * 
           FROM public."Phones"
+          WHERE public."Phones"."category" = 'phones'
           ORDER BY public."Phones"."price"
         `);
             break;
@@ -40,6 +42,7 @@ function sortByQuery(sortBy) {
             sortByData = client.query(`
           SELECT * 
           FROM public."Phones"
+          WHERE public."Phones"."category" = 'phones'
           ORDER BY public."Phones"."price" desc
         `);
             break;
@@ -48,6 +51,7 @@ function sortByQuery(sortBy) {
             sortByData = client.query(`
           SELECT * 
           FROM public."Phones"
+          WHERE public."Phones"."category" = 'phones'
           ORDER BY public."Phones"."year" desc
         `);
             break;
@@ -56,6 +60,7 @@ function sortByQuery(sortBy) {
             sortByData = client.query(`
           SELECT * 
           FROM public."Phones"
+          WHERE public."Phones"."category" = 'phones'
           ORDER BY public."Phones"."year" 
         `);
             break;
