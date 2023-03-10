@@ -3217,7 +3217,7 @@
 ,
 {
   "id": "apple-ipad-air-64gb-spacegray",
-  "namespaceId": "apple-ipad-air-64gb",
+  "namespaceId": "apple-ipad-air-2022-64gb",
   "name": "Apple Ipad Air 64GB Spacegray",
   "capacityAvailable": [ "64GB","256GB"],
   "capacity": "64GB",
@@ -3269,7 +3269,7 @@
 ,
 {
   "id": "apple-ipad-air-256gb-blue",
-  "namespaceId": "apple-ipad-air-256gb",
+  "namespaceId": "apple-ipad-air-2022-256gb",
   "name": "Apple Ipad Air 256GB Blue",
   "capacityAvailable": [ "64GB","256GB"],
   "capacity": "256GB",
