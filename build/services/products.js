@@ -64,7 +64,9 @@ function sortByQuery(sortBy) {
     return sortByData;
 }
 function getAll() {
-    return client.query(`SELECT * FROM public."Phones"`);
+    return client.query(`SELECT * 
+FROM public."Phones"
+WHERE public."Phones"."category" = 'phones'`);
 }
 function getByFilter(filter) {
     return __awaiter(this, void 0, void 0, function* () {
@@ -99,7 +101,10 @@ function getByFilter(filter) {
                 break;
             }
             case 'tablets': {
-                return [];
+                const data = client.query(`SELECT * 
+FROM public."Phones"
+WHERE public."Phones"."category" = 'tablets'`);
+                return data;
                 break;
             }
             default: {
