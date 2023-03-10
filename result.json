@@ -3436,4 +3436,235 @@
     "LTE"
   ]
 }
+,
+{
+  "id": "apple-ipad-air-64gb-blue",
+  "namespaceId": "apple-ipad-air-2022-64gb",
+  "name": "Apple Ipad Air 64GB Blue",
+  "capacityAvailable": [
+    "64GB",
+    "256GB"
+  ],
+  "capacity": "64GB",
+  "priceRegular": 1150,
+  "priceDiscount": 1100,
+  "colorsAvailable": [
+    "spacegray",
+    "blue"
+  ],
+  "color": "blue",
+  "images": [
+    "img/phones/apple-ipad-air-2022-64gb/blue/00.jpeg",
+    "img/phones/apple-ipad-air-2022-64gb/blue/01.jpeg",
+    "img/phones/apple-ipad-air-2022-64gb/blue/02.jpeg"
+  ],
+  "description": [
+    {
+      "title": "And then there was Pro",
+      "text": [
+        "A transformative triple-camera system that adds tons of capability without complexity.",
+        "An unprecedented leap in battery life. And a mind-blowing chip that doubles down on machine learning and pushes the boundaries of what a smartphone can do. Welcome to the first iPhone powerful enough to be called Pro."
+      ]
+    },
+    {
+      "title": "Camera",
+      "text": [
+        "Meet the first triple-camera system to combine cutting-edge technology with the legendary simplicity of iPhone. Capture up to four times more scene. Get beautiful images in drastically lower light. Shoot the highest-quality video in a smartphone — then edit with the same tools you love for photos. You’ve never shot with anything like it."
+      ]
+    },
+    {
+      "title": "Shoot it. Flip it. Zoom it. Crop it. Cut it. Light it. Tweak it. Love it.",
+      "text": [
+        "iPhone 11 Pro lets you capture videos that are beautifully true to life, with greater detail and smoother motion. Epic processing power means it can shoot 4K video with extended dynamic range and cinematic video stabilization — all at 60 fps. You get more creative control, too, with four times more scene and powerful new editing tools to play with."
+      ]
+    }
+  ],
+  "screen": "6.5' OLED (Super Retina HD)",
+  "resolution": "2688х1242",
+  "processor": "Apple A12 Bionic",
+  "ram": "3GB",
+  "camera": "12 Mp + 12 Mp + 7MP",
+  "zoom": "Digital, 10x / Optical, 2x",
+  "cell": [
+    "GPRS",
+    "EDGE",
+    "WCDMA",
+    "UMTS",
+    "HSPA",
+    "LTE"
+  ]
+},
+{
+  "id": "apple-ipad-air-256gb-spacegray",
+  "namespaceId": "apple-ipad-air-2022-256gb",
+  "name": "Apple Ipad Air 256GB Spacegray",
+  "capacityAvailable": [
+    "64GB",
+    "256GB"
+  ],
+  "capacity": "256GB",
+  "priceRegular": 1200,
+  "priceDiscount": 1160,
+  "colorsAvailable": [
+    "spacegray",
+    "blue"
+  ],
+  "color": "spacegray",
+  "images": [
+    "img/phones/apple-ipad-air-2022-256gb/spacegray/00.jpeg",
+    "img/phones/apple-ipad-air-2022-256gb/spacegray/01.jpeg",
+    "img/phones/apple-ipad-air-2022-256gb/spacegray/02.jpeg"
+  ],
+  "description": [
+    {
+      "title": "And then there was Pro",
+      "text": [
+        "A transformative triple-camera system that adds tons of capability without complexity.",
+        "An unprecedented leap in battery life. And a mind-blowing chip that doubles down on machine learning and pushes the boundaries of what a smartphone can do. Welcome to the first iPhone powerful enough to be called Pro."
+      ]
+    },
+    {
+      "title": "Camera",
+      "text": [
+        "Meet the first triple-camera system to combine cutting-edge technology with the legendary simplicity of iPhone. Capture up to four times more scene. Get beautiful images in drastically lower light. Shoot the highest-quality video in a smartphone — then edit with the same tools you love for photos. You’ve never shot with anything like it."
+      ]
+    },
+    {
+      "title": "Shoot it. Flip it. Zoom it. Crop it. Cut it. Light it. Tweak it. Love it.",
+      "text": [
+        "iPhone 11 Pro lets you capture videos that are beautifully true to life, with greater detail and smoother motion. Epic processing power means it can shoot 4K video with extended dynamic range and cinematic video stabilization — all at 60 fps. You get more creative control, too, with four times more scene and powerful new editing tools to play with."
+      ]
+    }
+  ],
+  "screen": "6.5' OLED (Super Retina HD)",
+  "resolution": "2688х1242",
+  "processor": "Apple A12 Bionic",
+  "ram": "3GB",
+  "camera": "12 Mp + 12 Mp + 7MP",
+  "zoom": "Digital, 10x / Optical, 2x",
+  "cell": [
+    "GPRS",
+    "EDGE",
+    "WCDMA",
+    "UMTS",
+    "HSPA",
+    "LTE"
+  ]
+},
+{
+  "id": "apple-ipad-pro-11-128gb-spacegray",
+  "namespaceId": "apple-ipad-pro-11-128gb",
+  "name": "Apple Ipad Pro 11 128GB Spacegray",
+  "capacityAvailable": [
+    "128GB",
+    "256GB"
+  ],
+  "capacity": "128GB",
+  "priceRegular": 970,
+  "priceDiscount": 955,
+  "colorsAvailable": [
+    "spacegray",
+    "silver"
+  ],
+  "color": "spacegray",
+  "images": [
+    "img/phones/apple-ipad-pro-11-128gb/spacegray/00.jpeg",
+    "img/phones/apple-ipad-pro-11-128gb/spacegray/01.jpeg",
+    "img/phones/apple-ipad-pro-11-128gb/spacegray/02.jpeg",
+    "img/phones/apple-ipad-pro-11-128gb/spacegray/03.jpeg"
+  ],
+  "description": [
+    {
+      "title": "And then there was Pro",
+      "text": [
+        "A transformative triple-camera system that adds tons of capability without complexity.",
+        "An unprecedented leap in battery life. And a mind-blowing chip that doubles down on machine learning and pushes the boundaries of what a smartphone can do. Welcome to the first iPhone powerful enough to be called Pro."
+      ]
+    },
+    {
+      "title": "Camera",
+      "text": [
+        "Meet the first triple-camera system to combine cutting-edge technology with the legendary simplicity of iPhone. Capture up to four times more scene. Get beautiful images in drastically lower light. Shoot the highest-quality video in a smartphone — then edit with the same tools you love for photos. You’ve never shot with anything like it."
+      ]
+    },
+    {
+      "title": "Shoot it. Flip it. Zoom it. Crop it. Cut it. Light it. Tweak it. Love it.",
+      "text": [
+        "iPhone 11 Pro lets you capture videos that are beautifully true to life, with greater detail and smoother motion. Epic processing power means it can shoot 4K video with extended dynamic range and cinematic video stabilization — all at 60 fps. You get more creative control, too, with four times more scene and powerful new editing tools to play with."
+      ]
+    }
+  ],
+  "screen": "6.5' OLED (Super Retina HD)",
+  "resolution": "2688х1242",
+  "processor": "Apple A12 Bionic",
+  "ram": "3GB",
+  "camera": "12 Mp + 12 Mp + 7MP",
+  "zoom": "Digital, 10x / Optical, 2x",
+  "cell": [
+    "GPRS",
+    "EDGE",
+    "WCDMA",
+    "UMTS",
+    "HSPA",
+    "LTE"
+  ]
+},
+{
+  "id": "apple-ipad-pro-11-256gb-spacegray",
+  "namespaceId": "apple-ipad-pro-11-256gb",
+  "name": "Apple Ipad Pro 11 256GB Spacegray",
+  "capacityAvailable": [
+    "128GB",
+    "256GB"
+  ],
+  "capacity": "256GB",
+  "priceRegular": 995,
+  "priceDiscount": 970,
+  "colorsAvailable": [
+    "spacegray",
+    "silver"
+  ],
+  "color": "spacegray",
+  "images": [
+    "img/phones/apple-ipad-pro-11-256gb/spacegray/00.jpeg",
+    "img/phones/apple-ipad-pro-11-256gb/spacegray/01.jpeg",
+    "img/phones/apple-ipad-pro-11-256gb/spacegray/02.jpeg",
+    "img/phones/apple-ipad-pro-11-256gb/spacegray/03.jpeg"
+  ],
+  "description": [
+    {
+      "title": "And then there was Pro",
+      "text": [
+        "A transformative triple-camera system that adds tons of capability without complexity.",
+        "An unprecedented leap in battery life. And a mind-blowing chip that doubles down on machine learning and pushes the boundaries of what a smartphone can do. Welcome to the first iPhone powerful enough to be called Pro."
+      ]
+    },
+    {
+      "title": "Camera",
+      "text": [
+        "Meet the first triple-camera system to combine cutting-edge technology with the legendary simplicity of iPhone. Capture up to four times more scene. Get beautiful images in drastically lower light. Shoot the highest-quality video in a smartphone — then edit with the same tools you love for photos. You’ve never shot with anything like it."
+      ]
+    },
+    {
+      "title": "Shoot it. Flip it. Zoom it. Crop it. Cut it. Light it. Tweak it. Love it.",
+      "text": [
+        "iPhone 11 Pro lets you capture videos that are beautifully true to life, with greater detail and smoother motion. Epic processing power means it can shoot 4K video with extended dynamic range and cinematic video stabilization — all at 60 fps. You get more creative control, too, with four times more scene and powerful new editing tools to play with."
+      ]
+    }
+  ],
+  "screen": "6.5' OLED (Super Retina HD)",
+  "resolution": "2688х1242",
+  "processor": "Apple A12 Bionic",
+  "ram": "3GB",
+  "camera": "12 Mp + 12 Mp + 7MP",
+  "zoom": "Digital, 10x / Optical, 2x",
+  "cell": [
+    "GPRS",
+    "EDGE",
+    "WCDMA",
+    "UMTS",
+    "HSPA",
+    "LTE"
+  ]
+}
 ]
