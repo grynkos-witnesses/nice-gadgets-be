@@ -61,7 +61,9 @@ function sortByQuery(sortBy: string) {
 }
 
 function getAll() {
-  return client.query(`SELECT * FROM public."Phones"`);
+  return client.query(`SELECT * 
+FROM public."Phones"
+WHERE public."Phones"."category" = 'phones'`);
 }
 
 async function getByFilter(filter: string) {
