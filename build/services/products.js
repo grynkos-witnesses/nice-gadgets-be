@@ -94,9 +94,16 @@ function getByFilter(filter) {
                         max = row.year;
                     }
                 }
+                let nextMax = 0;
+                for (const row of data.rows) {
+                    if (row.year < max && row.year > nextMax) {
+                        nextMax = row.year;
+                    }
+                }
                 const preaperedData = client.query(`SELECT * 
           FROM public."Phones"
-          WHERE public."Phones"."year" = '${max}'
+          WHERE (public."Phones"."year" <= '${max}') AND (public."Phones"."year" >= '${nextMax}')
+          ORDER BY public."Phones"."year" desc
           `);
                 return preaperedData;
                 break;
