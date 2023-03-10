@@ -49,12 +49,24 @@ function getAllWithParams(req, res) {
 function getFilteredData(req, res) {
     return __awaiter(this, void 0, void 0, function* () {
         const { filter } = req.params;
-        const data = yield productsServices.getByFilter(filter);
+        const normalizedUrl = new url.URL(req.url, `http://${req.headers.host}`);
+        const params = normalizedUrl.searchParams;
+        let page = params.get('page');
+        let perPage = params.get('perPage');
+        const sortBy = params.get('sortBy');
+        let sortByData;
+        let data = yield productsServices.getByFilter(filter);
         if (data.length === 0) {
             res.send([]);
             return;
         }
         if (filter === 'tablets') {
+            if (sortBy) {
+                sortByData = yield productsServices.sortByQuery(sortBy, filter);
+            }
+            if (sortByData) {
+                data = sortByData;
+            }
             res.send({
                 data: data.rows,
                 total: data.rows.length

@@ -46,8 +46,14 @@ async function getAllWithParams(req: any, res: { send: (arg0: any) => void; }) {
 
 async function getFilteredData(req: any, res: { send: (arg0: any) => void; }) {
   const { filter } = req.params;
+  const normalizedUrl = new url.URL(req.url, `http://${req.headers.host}`);
+  const params = normalizedUrl.searchParams;
+  let page = params.get('page');
+  let perPage = params.get('perPage');
+  const sortBy = params.get('sortBy');
+  let sortByData: any;
 
-  const data = await productsServices.getByFilter(filter);
+  let data = await productsServices.getByFilter(filter);
 
   if (data.length === 0) {
     res.send([]);
@@ -56,6 +62,14 @@ async function getFilteredData(req: any, res: { send: (arg0: any) => void; }) {
   }
 
   if (filter === 'tablets') {
+    if (sortBy) {
+      sortByData = await productsServices.sortByQuery(sortBy, filter);
+    }
+
+    if (sortByData) {
+      data = sortByData;
+    }
+
     res.send({
       data: data.rows,
       total: data.rows.length

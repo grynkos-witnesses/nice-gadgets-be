@@ -8,14 +8,14 @@ const client = new Client({
     });
 client.connect();
 
-function sortByQuery(sortBy: string) {
+function sortByQuery(sortBy: string, category: string = 'phones') {
   let sortByData;
     switch (sortBy) {
       case 'name': {
         sortByData = client.query(`
           SELECT * 
           FROM public."Phones"
-          WHERE public."Phones"."category" = 'phones'
+          WHERE public."Phones"."category" = '${category}'
           ORDER BY public."Phones"."name"
         `);
         break;
@@ -24,7 +24,7 @@ function sortByQuery(sortBy: string) {
         sortByData = client.query(`
           SELECT * 
           FROM public."Phones"
-          WHERE public."Phones"."category" = 'phones'
+          WHERE public."Phones"."category" = '${category}'
           ORDER BY public."Phones"."price"
         `);
         
@@ -34,7 +34,7 @@ function sortByQuery(sortBy: string) {
         sortByData = client.query(`
           SELECT * 
           FROM public."Phones"
-          WHERE public."Phones"."category" = 'phones'
+          WHERE public."Phones"."category" = '${category}'
           ORDER BY public."Phones"."price" desc
         `);
         
@@ -44,7 +44,7 @@ function sortByQuery(sortBy: string) {
         sortByData = client.query(`
           SELECT * 
           FROM public."Phones"
-          WHERE public."Phones"."category" = 'phones'
+          WHERE public."Phones"."category" = '${category}'
           ORDER BY public."Phones"."year" desc
         `);
         
@@ -54,7 +54,7 @@ function sortByQuery(sortBy: string) {
         sortByData = client.query(`
           SELECT * 
           FROM public."Phones"
-          WHERE public."Phones"."category" = 'phones'
+          WHERE public."Phones"."category" = '${category}'
           ORDER BY public."Phones"."year" 
         `);
         
