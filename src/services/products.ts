@@ -108,7 +108,12 @@ async function getByFilter(filter: string) {
       break;
     }      
     case 'tablets': {
-      return [];
+      const data = client.query(`SELECT * 
+FROM public."Phones"
+WHERE public."Phones"."category" = 'tablets'`
+      );
+
+      return data;
 
       break;
     }
